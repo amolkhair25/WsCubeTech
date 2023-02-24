@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>Home Page</title>
+        <title>{{title}}</title>
         <style>
             .main{
                 width:1000px;
@@ -11,8 +11,39 @@
 
     </head>
     <body>
-            <div class="main">
-            Welcome to WsCubeTech
-            </div>
+        {% for n in clist %}
+        <div>{{forloop.counter}} {{n}}</div>
+        {% endfor%}
+    </br>
+    </br>
+    
+       <table border="1" cellpadding="10px">
+           <tr>
+           <th>Name</th>
+           <th>Phone Number</th>
+           </tr>
+           
+           {% for d in Students_details %}
+           <tr>
+            <td>{{d.name}}</td>
+            <td>{{d.phone}}</td>
+           </tr>
+           {% endfor %}
+       </table>
+    </br>
+    </br>
+    {%  if num|length > 0 %}
+       {% for i in num %}
+            {% if i > 10 %}
+                <div>{{i}}</div>
+            {% endif %}
+
+       {% endfor %}
+    {% else %}
+       No Data Found
+    
+    {% endif %}
+     
+
     </body>
 </html> 
